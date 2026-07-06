@@ -1,0 +1,339 @@
+/* ==========================================================================
+   JobPortal — Global Theme
+   A single source of truth for colours, typography and components.
+   Loaded after Bootstrap on every page, so these rules re-skin the whole app.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Brand palette */
+    --primary:        #4f46e5;   /* indigo 600 */
+    --primary-dark:   #4338ca;   /* indigo 700 */
+    --primary-darker: #3730a3;   /* indigo 800 */
+    --primary-light:  #eef2ff;   /* indigo 50  */
+    --primary-soft:   #e0e7ff;   /* indigo 100 */
+
+    --accent:         #059669;   /* emerald 600 */
+    --accent-dark:    #047857;   /* emerald 700 */
+    --accent-light:   #ecfdf5;   /* emerald 50  */
+
+    --ink:            #0f172a;   /* slate 900 — headings   */
+    --body:           #334155;   /* slate 700 — body text  */
+    --muted:          #64748b;   /* slate 500 — muted text */
+    --line:           #e2e8f0;   /* slate 200 — borders    */
+    --surface:        #ffffff;
+    --canvas:         #f1f5f9;   /* slate 100 — page bg    */
+
+    --danger:         #dc2626;
+    --warning:        #d97706;
+    --info:           #0284c7;
+
+    --radius:         14px;
+    --radius-sm:      10px;
+    --shadow-sm:      0 1px 2px rgba(15, 23, 42, .06), 0 1px 3px rgba(15, 23, 42, .08);
+    --shadow:         0 4px 6px -1px rgba(15, 23, 42, .08), 0 2px 4px -2px rgba(15, 23, 42, .06);
+    --shadow-lg:      0 20px 25px -5px rgba(15, 23, 42, .12), 0 8px 10px -6px rgba(15, 23, 42, .08);
+}
+
+/* --------------------------------------------------------------- Base --- */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--body);
+    background-color: var(--canvas);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    color: var(--ink);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+a { color: var(--primary); }
+a:hover { color: var(--primary-dark); }
+
+.text-muted { color: var(--muted) !important; }
+.lead { color: var(--muted); }
+
+/* ---------------------------------------------------------- Utilities --- */
+.text-primary { color: var(--primary) !important; }
+.text-success { color: var(--accent) !important; }
+
+.bg-primary { background-color: var(--primary) !important; }
+.bg-success { background-color: var(--accent) !important; }
+.bg-dark    { background-color: var(--ink) !important; }
+.bg-light   { background-color: var(--canvas) !important; }
+
+/* Soft gradient helper reused by hero / page headers */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-darker) 100%) !important;
+}
+
+/* ------------------------------------------------------------ Navbar --- */
+.navbar {
+    box-shadow: var(--shadow-sm);
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+}
+.navbar.bg-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+}
+.navbar-brand {
+    color: #fff !important;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .82);
+    font-weight: 500;
+    border-radius: 8px;
+    padding-left: .9rem;
+    padding-right: .9rem;
+    transition: all .2s ease;
+}
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .14);
+}
+
+/* -------------------------------------------------------------- Cards --- */
+.card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    background: var(--surface);
+}
+.card-header {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--line);
+    font-weight: 600;
+}
+.hover-shadow { transition: transform .25s ease, box-shadow .25s ease; }
+.hover-shadow:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* ------------------------------------------------------------ Buttons --- */
+.btn {
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    padding: .55rem 1.25rem;
+    transition: all .2s ease;
+    letter-spacing: -0.01em;
+}
+.btn-lg { padding: .8rem 1.75rem; }
+.btn:focus, .form-control:focus { box-shadow: 0 0 0 .2rem rgba(79, 70, 229, .25); }
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+.btn-success {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+.btn-success:hover, .btn-success:focus {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+}
+.btn-light {
+    background-color: #fff;
+    border-color: #fff;
+    color: var(--primary);
+}
+.btn-light:hover { background-color: var(--primary-light); color: var(--primary-dark); }
+
+/* -------------------------------------------------------------- Forms --- */
+.form-control {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+    padding: .6rem .9rem;
+}
+.form-control:focus {
+    border-color: var(--primary);
+}
+label { color: var(--ink); font-weight: 500; }
+
+/* ------------------------------------------------------------- Badges --- */
+.badge { font-weight: 600; padding: .4em .7em; border-radius: 8px; }
+.badge-primary { background-color: var(--primary); }
+.badge-success { background-color: var(--accent); }
+
+/* ------------------------------------------------------------- Alerts --- */
+.alert { border: none; border-radius: var(--radius-sm); }
+.alert-danger  { background-color: #fef2f2; color: #b91c1c; }
+.alert-success { background-color: var(--accent-light); color: var(--accent-dark); }
+.alert-info    { background-color: var(--primary-light); color: var(--primary-dark); }
+
+/* -------------------------------------------------------------- Table --- */
+.table thead th {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    border-bottom: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: .78rem;
+    letter-spacing: .03em;
+}
+
+/* ------------------------------------------------------------ Dropdown -- */
+.dropdown-menu {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    padding: .4rem;
+}
+.dropdown-item { border-radius: 8px; font-weight: 500; padding: .5rem .75rem; }
+.dropdown-item:hover { background-color: var(--primary-light); color: var(--primary-dark); }
+
+/* ------------------------------------------------- Job card visuals --- */
+/* Coloured banner + company logo shown on top of every job card */
+.job-banner {
+    position: relative;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    padding: 0 1.1rem;
+    overflow: hidden;
+}
+.job-logo {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: #fff;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, .25);
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+}
+.job-cat-tag {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    background: rgba(255, 255, 255, .22);
+    color: #fff;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: .3rem .7rem;
+    border-radius: 20px;
+    backdrop-filter: blur(2px);
+}
+.job-watermark {
+    position: absolute;
+    right: -8px;
+    bottom: -26px;
+    font-size: 6.5rem;
+    color: rgba(255, 255, 255, .16);
+    z-index: 1;
+}
+/* Let banners clip to the card's rounded corners */
+.card, .job-card { overflow: hidden; }
+
+/* Large logo used on the job-details header */
+.detail-logo {
+    width: 76px;
+    height: 76px;
+    flex: 0 0 auto;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .95);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.75rem;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, .25);
+}
+
+/* Hero illustration */
+.hero-illustration {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(15, 23, 42, .25));
+}
+
+/* Browse-by-category tiles */
+.category-tile {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem 1rem;
+    text-align: center;
+    color: var(--ink);
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    height: 100%;
+}
+.category-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-soft);
+    color: var(--ink);
+    text-decoration: none;
+}
+.category-tile .cat-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto .9rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+/* ------------------------------------------------- Admin dashboard --- */
+/* SB-Admin style helpers used by admin/dashboard.php */
+.border-left-primary { border-left: .28rem solid var(--primary) !important; }
+.border-left-success { border-left: .28rem solid var(--accent)  !important; }
+.border-left-info    { border-left: .28rem solid var(--info)    !important; }
+.border-left-warning { border-left: .28rem solid var(--warning) !important; }
+.border-left-danger  { border-left: .28rem solid var(--danger)  !important; }
+
+.text-xs { font-size: .7rem; letter-spacing: .04em; }
+.text-gray-800 { color: var(--ink) !important; }
+.text-gray-600 { color: var(--muted) !important; }
+
+.btn-info    { background-color: var(--info); border-color: var(--info); }
+.btn-info:hover { background-color: #0369a1; border-color: #0369a1; }
+.btn-warning { background-color: var(--warning); border-color: var(--warning); color: #fff; }
+.btn-warning:hover { background-color: #b45309; border-color: #b45309; color: #fff; }
+.btn-danger  { background-color: var(--danger); border-color: var(--danger); }
+.btn-danger:hover { background-color: #b91c1c; border-color: #b91c1c; }
+
+.topbar { border: 1px solid var(--line); }
+
+/* ------------------------------------------------------------- Footer --- */
+footer.bg-dark { background-color: var(--ink) !important; }
