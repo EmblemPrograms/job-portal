@@ -1,0 +1,12 @@
+<?php
+/**
+ * TEMPLATE — copy this file to "config.local.php" (same folder) and fill in your
+ * LIVE database credentials from the InfinityFree control panel.
+ *
+ * config.local.php is gitignored, so your real credentials are never committed.
+ * When present, the values here override those in config.php.
+ */
+$DB_HOST = 'sqlXXX.infinityfree.com';    // e.g. sql200.infinityfree.com
+$DB_USER = 'if0_00000000';               // your MySQL username
+$DB_PASS = 'YOUR_DB_PASSWORD';           // your MySQL password
+$DB_NAME = 'if0_00000000_job_portal';    // your database name (prefixed)

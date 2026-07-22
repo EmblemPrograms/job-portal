@@ -1,0 +1,7 @@
+# Local secrets — never commit real DB credentials
+includes/config.local.php
+
+# Editor / OS junk
+.DS_Store
+Thumbs.db
+*.log
